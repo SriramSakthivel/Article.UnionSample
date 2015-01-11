@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 
 namespace UnionSample
 {
-    public class Base
-    {
-        protected int state = 123;
-
-        public int GetState()
-        {
-            return state;
-        }
-    }
-
     public class Derived : Base
     {
         public static void Print()
@@ -31,15 +20,5 @@ namespace UnionSample
         {
             return new EvilUnion { A = a }.B;
         }
-    }
-
-    [StructLayout(LayoutKind.Explicit)]
-    public struct EvilUnion
-    {
-        [FieldOffset(0)]
-        public Base A;
-
-        [FieldOffset(0)]
-        public Derived B;
     }
 }
